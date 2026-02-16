@@ -1,46 +1,86 @@
-# 🛡️ Sigorta Endüstrisi İçgörüleri (Insurance Industry Insight)
+# � Veteriner Tıbbı Öğrenme Yolculuğu (Veterinary Medicine Learning Journey)
 
-### *Veri Odaklı Risk Yönetimi & Stratejik Analiz Platformu*
+### *Yaşama Saygı, Bilime Adanmışlık.*
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-ff4b4b?style=for-the-badge&logo=streamlit&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-Study_Assistant-ff4b4b?style=for-the-badge&logo=streamlit&logoColor=white)
+![Durum](https://img.shields.io/badge/Durum-Öğrenci_Projesi-yellow?style=for-the-badge)
 ![Lisans](https://img.shields.io/badge/Lisans-MIT-green?style=for-the-badge)
 
 ---
 
-## 🎯 Proje Özeti
+## ⚠️ Yasal Uyarı (Disclaimer)
 
-**Insurance-Industry-Insight**, karmaşık sigorta verilerini eyleme geçirilebilir stratejik içgörülere dönüştüren açık kaynaklı bir analitik platformudur. Geleneksel raporlamanın ötesine geçerek, modern veri bilimi ve etkileşimli görselleştirme teknikleriyle risk yönetimini demokratikleştirir.
+**Lütfen Dikkatle Okuyunuz:**
 
-## ✨ Temel Özellikler
+Bu depo (repository), bir Veteriner Hekimliği öğrencisinin kişisel öğrenme yolculuğunu, ders notlarını ve akademik çalışmalarını belgelemek amacıyla oluşturulmuştur.
 
-*   📊 **Dinamik Yönetici Paneli:** Prim (GWP), Hasar Oranı (Loss Ratio) ve Poliçe adetlerinin gerçek zamanlı takibi.
-*   🔍 **Derinlemesine Analiz:** Branş, bölge ve acente bazlı performans kırılımları.
-*   🤖 **YZ Destekli Öngörü:** Risk skorlaması ve müşteri terk (churn) tahmin modelleri (Alpha).
+*   ❌ **Tıbbi Tavsiye Değildir:** Buradaki hiçbir içerik, profesyonel veteriner hekim tavsiyesi, tanısı veya tedavisi yerine geçmez.
+*   ❌ **Uygulama Kılavuzu Değildir:** Burada yer alan kodlar veya notlar, gerçek hastalar üzerinde uygulanmak üzere tasarlanmamıştır.
+*   ✅ **Sadece Eğitim Amaçlıdır:** Tüm içerik, teorik bilginin pekiştirilmesi ve dijital arşivleme amacıyla paylaşılmaktadır.
 
-## 🛠️ Teknoloji Yığını
+**Unutmayalım ki, işin ucunda bir can var.** Tıp, hata kaldırmayan ve sürekli güncellenen bir bilim dalıdır. Buradaki bilgiler güncelliğini yitirmiş veya hatalı olabilir. Her zaman uzman görüşüne ve hakemli literatüre başvurunuz.
 
-*   **Core:** `Python`
-*   **Arayüz:** `Streamlit`
-*   **Analiz & Görselleştirme:** `Pandas`, `Plotly`, `Scikit-Learn`
+---
 
-## 🚀 Hızlı Başlangıç
+## 📜 Manifesto
+
+Tıp, sadece bir meslek değil, yaşama karşı duyulan derin bir sorumluluktur. Bu repoda kod satırları değil, bir hekim adayının gelişim süreci yatmaktadır.
+
+Biz inanıyoruz ki:
+1.  **Öğrenmek Süreklidir:** Tıp bitmeyen bir okuldur. Her vaka, her makale yeni bir derstir.
+2.  **Teknoloji Destekçidir:** Yazılım ve veri bilimi, hekimin karar verme sürecini güçlendiren araçlardır, onun yerine geçen otoriteler değil.
+3.  **Önce Zarar Verme (Primum Non Nocere):** Yazdığımız her kodda, öğrendiğimiz her bilgide temel ilke yaşama zarar vermemektir.
+
+Bu proje, veteriner tıbbının karmaşık dünyasını anlamaya çalışan bir zihnin dijital yansımasıdır.
+
+---
+
+## � İçerik Yapısı
+
+Repo, veteriner hekimliği eğitim müfredatına paralel olarak modüler bir yapıda düzenlenmiştir:
+
+```text
+Veterinary-Medicine-Journey/
+├── data/                    # Ham notlar, referans tabloları (CSV/JSON)
+├── notebooks/               # Vaka analizleri ve istatistiksel çalışmalar
+├── src/                     # Dijital Çalışma Asistanı (Streamlit App)
+│   ├── anatomy/             # Anatomi notları ve 3D model referansları
+│   ├── physiology/          # Fizyolojik sistem simülasyonları
+│   └── pharmacology/        # İlaç etkileşim notları
+├── .gitignore               # Versiyon kontrol ayarları
+├── requirements.txt         # Gerekli Python kütüphaneleri
+└── README.md                # Şu an buradasınız
+```
+
+---
+
+## �️ Dijital Çalışma Asistanı (App)
+
+Bu proje aynı zamanda kişisel gelişimimi takip etmek için geliştirdiğim basit bir **Streamlit** uygulaması içerir.
+
+**Özellikler:**
+*   📘 **Ders Takibi:** Anatomi, Histoloji, Fizyoloji vb. derslerdeki ilerleme durumu.
+*   📝 **Vaka Arşivi:** Anonimleştirilmiş teorik vakaların analizi ve çözümleri.
+*   Timetable: Sınav ve çalışma takvimi.
+
+### Çalıştırma
 
 ```bash
-# Repoyu klonla
-git clone https://github.com/bahattinyunus/Insurance-Industry-Insight.git
-cd Insurance-Industry-Insight
-
-# Bağımlılıkları yükle
+# Gerekli kütüphaneleri yükle
 pip install -r requirements.txt
 
-# Uygulamayı başlat
+# Asistanı başlat
 streamlit run src/app.py
 ```
 
-## 🤝 İletişim
+---
 
-**Geliştirici:** Bahattin Yunus ([@bahattinyunus](https://github.com/bahattinyunus))
+## 🤝 İletişim & Etik
+
+Bu repo, bilgi paylaşımına açık olsa da, tıbbi etik kurallara sıkı sıkıya bağlıdır. Herhangi bir hata fark ederseniz veya katkıda bulunmak isterseniz lütfen *Issue* açarak bildirin.
+
+**Öğrenci:** Bahattin Yunus ([@bahattinyunus](https://github.com/bahattinyunus))
 
 ---
-<center><i>"Risk yönetimi, belirsizliğe yapı kazandırma sanatıdır."</i></center>
+<center><i>"Hekimlik sanatını seven, insanlığı (ve tüm canlıları) da sever." - Hipokrat</i></center>

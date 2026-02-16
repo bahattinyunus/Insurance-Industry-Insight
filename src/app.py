@@ -1,12 +1,11 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
-import numpy as np
+import datetime
 
 # Sayfa Yapılandırması
 st.set_page_config(
-    page_title="Sigorta Endüstrisi İçgörüleri",
-    page_icon="🛡️",
+    page_title="Vet. Med. Çalışma Asistanı",
+    page_icon="🐾",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -15,75 +14,79 @@ st.set_page_config(
 st.markdown("""
     <style>
         .main {
-            background-color: #f0f2f6;
+            background-color: #f9f9f9;
         }
         .stButton>button {
             color: #ffffff;
-            background-color: #ff4b4b;
-            border-radius: 10px;
+            background-color: #2e8b57; /* SeaGreen for medical feel */
+            border-radius: 8px;
         }
     </style>
 """, unsafe_allow_html=True)
 
 # Kenar Çubuğu
 with st.sidebar:
-    st.title("🛡️ Sigorta İçgörü")
+    st.image("https://img.icons8.com/color/96/ios-glyphs/veterinarian.png", width=80)
+    st.title("🐾 Vet. Öğrenci Asistanı")
     st.markdown("---")
-    st.markdown("### Navigasyon")
-    page = st.radio("Git", ["Panel", "Veri Kaşifi", "YZ Modelleri", "Ayarlar"])
+    st.markdown("### Çalışma Modülleri")
+    page = st.radio("Git", ["Genel Bakış", "Ders Notları", "Vaka Analizleri", "Sözlük & Referans"])
     st.markdown("---")
-    st.markdown("v0.1.0 | Alfa")
+    st.info("⚠️ Bu uygulama sadece eğitim amaçlıdır. Tıbbi tanı/tedavi için kullanılamaz.")
 
 # Ana İçerik
-if page == "Panel":
-    st.title("📊 Yönetici Paneli")
-    st.markdown("Sigorta piyasası trendlerine ve portföy performansına dair gerçek zamanlı içgörüler.")
+if page == "Genel Bakış":
+    st.title("🩺 Hoşgeldin, Hekim Adayı")
+    st.markdown("Bugün hangi konuya odaklanıyoruz? Unutma, **işin ucunda hayat var.**")
 
-    # Temel Metrikler Satırı
-    col1, col2, col3, col4 = st.columns(4)
+    # İlerleme Kartları
+    col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric(label="Toplam Yazılan Prim (GWP)", value="₺12.5M", delta="%8.2")
+        st.metric(label="Tamamlanan Konular", value="12", delta="2 (Bu Hafta)")
     with col2:
-        st.metric(label="Hasar Oranı (Loss Ratio)", value="%62.4", delta="-%1.5", delta_color="inverse")
+        st.metric(label="Çözülen Vaka (Teorik)", value="5")
     with col3:
-        st.metric(label="Aktif Poliçeler", value="15,402", delta="124")
-    with col4:
-        st.metric(label="Müşteri Tutma", value="%94.2", delta="%0.3")
+        st.metric(label="Sıradaki Sınav", value="Anatomi II", delta="3 Gün Kaldı", delta_color="inverse")
 
-    st.markdown("---")
+    st.markdown("### 📅 Haftalık Çalışma Programı")
+    study_plan = pd.DataFrame({
+        'Gün': ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma'],
+        'Sabah': ['Anatomi (Osteoloji)', 'Fizyoloji (Sinir Sis.)', 'Histoloji', 'Anatomi (Miyoloji)', 'Klinik Bilimler'],
+        'Öğleden Sonra': ['Biyokimya', 'Farmakoloji', 'Patoloji', 'Vaka Analizi', 'Yabancı Dil']
+    })
+    st.table(study_plan)
 
-    # Örnek Grafikler
-    col_left, col_right = st.columns(2)
+elif page == "Ders Notları":
+    st.title("📚 Ders Notları Arşivi")
+    subject = st.selectbox("Ders Seçiniz:", ["Anatomi", "Fizyoloji", "Biyokimya", "Farmakoloji", "İç Hastalıkları"])
+    
+    st.markdown(f"### {subject} Notları")
+    st.write("Bu alanda Markdown formatındaki ders notlarınız görüntülenecektir.")
+    
+    if subject == "Anatomi":
+        with st.expander("Osteoloji (Kemik Bilimi) - Özet"):
+            st.markdown("- **Axial İskelet:** Kafatası, omurga, kaburgalar, sternum.\n- **Appendicular İskelet:** Ön ve arka ekstremiteler.")
 
-    with col_left:
-        st.subheader("Aylık Prim Trendi")
-        # Örnek Veri
-        df_trend = pd.DataFrame({
-            'Ay': pd.date_range(start='2024-01-01', periods=6, freq='M'),
-            'Prim': np.random.randint(1000000, 2000000, 6)
-        })
-        fig_trend = px.line(df_trend, x='Ay', y='Prim', markers=True, template="plotly_white")
-        st.plotly_chart(fig_trend, use_container_width=True)
+elif page == "Vaka Analizleri":
+    st.title("🔬 Teorik Vaka İncelemeleri")
+    st.write("Burada anonimleştirilmiş veya kurgusal vakalar üzerinden tanısal yaklaşım pratiği yapılır.")
+    
+    st.info("Vaka No: #2024-001 | Tür: Felis catus (Kedi) | Şikayet: İştahsızlık ve Letarji")
+    
+    approach = st.text_area("Ayırıcı Tanı Yaklaşımınız:", placeholder="Semptomları ve olası nedenleri buraya not alın...")
+    if st.button("Notu Kaydet"):
+        st.success("Analiz notunuz veritabanına kaydedildi.")
 
-    with col_right:
-        st.subheader("Portföy Dağılımı")
-        # Örnek Veri
-        df_dist = pd.DataFrame({
-            'Segment': ['Oto', 'Sağlık', 'Konut', 'Hayat', 'Ticari'],
-            'Değer': [35, 25, 20, 10, 10]
-        })
-        fig_dist = px.pie(df_dist, values='Değer', names='Segment', hole=0.4, template="plotly_white")
-        st.plotly_chart(fig_dist, use_container_width=True)
-
-elif page == "Veri Kaşifi":
-    st.title("💾 Veri Kaşifi")
-    st.warning("Keşfetmeye başlamak için veri kaynağınızı bağlayın.")
-
-elif page == "YZ Modelleri":
-    st.title("🤖 YZ Risk Değerlendirmesi")
-    st.info("Tahminleyici modeller çok yakında.")
-
-elif page == "Ayarlar":
-    st.title("⚙️ Ayarlar")
-    st.checkbox("Karanlık Modu Etkinleştir")
-    st.checkbox("Geliştirici Araçlarını Göster")
+elif page == "Sözlük & Referans":
+    st.title("📖 Terminoloji ve Referans Değerler")
+    st.text_input("Terim Ara:", placeholder="Örn: Taşikardi, Diskezi...")
+    
+    st.markdown("### Hemogram Referans Aralıkları (Kedi/Köpek)")
+    st.warning("Referans değerleri laboratuvara ve cihaza göre değişebilir.")
+    # Örnek Tablo
+    ref_data = pd.DataFrame({
+        'Parametre': ['RBC', 'WBC', 'HCT', 'PLT'],
+        'Köpek': ['5.5-8.5', '6-17', '37-55', '200-500'],
+        'Kedi': ['5-10', '5.5-19.5', '24-45', '300-800']
+    })
+    st.dataframe(ref_data, use_container_width=True)
