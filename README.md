@@ -1,6 +1,6 @@
-# 🛡️ Sigorta Endüstrisi İçgörüleri (Insurance Industry Insight)
+![Header](https://capsule-render.vercel.app/api?type=waving&color=00b4d8&height=300&section=header&text=Insurance%20Industry%20Insight&fontSize=50&animation=fadeIn&fontAlign=50&desc=Veri%20Odaklı%20Kararlar,%20Geleceğin%20Risk%20Yönetimi&descAlign=50&descSize=20&fontColor=ffffff)
 
-### *Veri Odaklı Kararlar, Geleceğin Risk Yönetimi.*
+# 🛡️ Sigorta Endüstrisi İçgörüleri (Insurance Industry Insight)
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-ff4b4b?style=for-the-badge&logo=streamlit&logoColor=white)
